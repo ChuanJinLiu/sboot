@@ -4,6 +4,8 @@ import com.ajin.sboot.model.Emp;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * @author Japoul
  */
@@ -15,4 +17,12 @@ public interface  EmpRepository extends JpaRepository<Emp, Integer> {
      * @return
      */
     Emp findByName(String name);
+
+    /**
+     * 根据age查询员工
+     *
+     * @return
+     */
+    List<Emp> findByAge(Long age);
+
 }
