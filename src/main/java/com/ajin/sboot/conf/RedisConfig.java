@@ -10,6 +10,7 @@ import java.lang.reflect.Method;
 
 /**
  * @author Japoul
+ * @EnableCaching是打开缓存
  */
 @Configuration
 @EnableCaching

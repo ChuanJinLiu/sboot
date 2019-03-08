@@ -351,4 +351,21 @@ public class User {
     public void setCreatetime(String createtime) {
         this.createtime = createtime == null ? null : createtime.trim();
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", password='" + password + '\'' +
+                ", sex=" + sex +
+                ", age=" + age +
+                ", phone='" + phone + '\'' +
+                ", addr='" + addr + '\'' +
+                ", birth='" + birth + '\'' +
+                ", remark='" + remark + '\'' +
+                ", status='" + status + '\'' +
+                ", createtime='" + createtime + '\'' +
+                '}';
+    }
 }

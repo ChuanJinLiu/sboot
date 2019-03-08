@@ -75,6 +75,11 @@
 			<artifactId>commons-pool2</artifactId>
 		</dependency>
 
+		<!--session托管在缓存redis中-->
+		<dependency>
+			<groupId>org.springframework.session</groupId>
+			<artifactId>spring-session-data-redis</artifactId>
+		</dependency>
 
 	</dependencies>
 

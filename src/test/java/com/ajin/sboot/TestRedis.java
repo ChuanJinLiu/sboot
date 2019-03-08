@@ -30,6 +30,12 @@ public class TestRedis {
     }
 
     @Test
+    public void test1() throws Exception {
+        //字符串键值对
+        redisTemplate.delete("user-key");
+    }
+
+    @Test
     public void testObj() throws InterruptedException {
         Emp emp = new Emp("RedisTest", 22L);
         //对象键值对
