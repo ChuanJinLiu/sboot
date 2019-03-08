@@ -64,7 +64,19 @@
             <version>3.1.1</version>
         </dependency>
 
-    </dependencies>
+		<!--Redis依赖包 spring-boot-starter-data-redis依赖于spring-data-redis 和 lettuce 。-->
+		<!--Spring Boot 1.0 默认使用的是 Jedis 客户端，2.0 替换成 Lettuce，但如果你从 Spring Boot 1.5.X 切换过来，几乎感受不大差异-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-redis</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-pool2</artifactId>
+		</dependency>
+
+
+	</dependencies>
 
 	<build>
 		<plugins>

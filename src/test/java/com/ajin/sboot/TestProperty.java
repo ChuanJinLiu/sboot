@@ -1,4 +1,4 @@
-package com.ajin.sboot.conf;
+package com.ajin.sboot;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
