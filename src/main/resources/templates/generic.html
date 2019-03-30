@@ -1,13 +1,13 @@
 <!DOCTYPE HTML>
 
-<html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <title>Generic Page - Massively by HTML5 UP</title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
-    <link rel="stylesheet" href="../static/css/main.css"/>
+    <link rel="stylesheet" href="/css/main.css"/>
     <noscript>
-        <link rel="stylesheet" href="../static/css/noscript.css"/>
+        <link rel="stylesheet" href="/css/noscript.css"/>
     </noscript>
 </head>
 <body class="is-loading">
@@ -17,15 +17,15 @@
 
     <!-- Header -->
     <header id="header">
-        <a href="login.html" class="logo">听风回响</a>
+        <a th:href="@{/login}" class="logo">听风回响</a>
     </header>
 
     <!-- Nav -->
     <nav id="nav">
         <ul class="links">
-            <li><a href="index.html">最近的事</a></li>
-            <li class="active"><a href="generic.html">吃豆豆</a></li>
-            <li><a href="elements.html">吐泡泡</a></li>
+            <li><a th:href="@{/index}">最近的事</a></li>
+            <li class="active"><a th:href="@{/generic}">吃豆豆</a></li>
+            <li><a th:href="@{/elements}">吐泡泡</a></li>
         </ul>
         <ul class="icons">
             <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
@@ -46,7 +46,7 @@
                     facilisis ante sed etiam magna interdum congue. Lorem ipsum dolor<br/>
                     amet nullam sed etiam veroeros.</p>
             </header>
-            <div class="image main"><img src="../static/img/pic01.jpg" alt=""/></div>
+            <div class="image main"><img src="/img/pic01.jpg" alt=""/></div>
             <p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis
                 dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet.
                 Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia
@@ -126,12 +126,12 @@
 </div>
 
 <!-- Scripts -->
-<script src="../static/js/jquery.min.js"></script>
-<script src="../static/js/jquery.scrollex.min.js"></script>
-<script src="../static/js/jquery.scrolly.min.js"></script>
-<script src="../static/js/skel.min.js"></script>
-<script src="../static/js/util.js"></script>
-<script src="../static/js/main.js"></script>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/jquery.scrollex.min.js"></script>
+<script src="/js/jquery.scrolly.min.js"></script>
+<script src="/js/skel.min.js"></script>
+<script src="/js/util.js"></script>
+<script src="/js/main.js"></script>
 
 </body>
 </html>

@@ -1,15 +1,15 @@
 <!DOCTYPE HTML>
 
-<html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <title>Home of Japoul</title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
-    <link rel="apple-touch-icon" sizes="76x76" href="../static/img/apple-icon.png">
-    <link rel="icon" type="image/png" href="../static/img/favicon.png">
-    <link rel="stylesheet" href="../static/css/main.css"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="/img/favicon.png">
+    <link rel="stylesheet" href="/css/main.css"/>
     <noscript>
-        <link rel="stylesheet" href="../static/css/noscript.css"/>
+        <link rel="stylesheet" href="/css/noscript.css"/>
     </noscript>
 </head>
 <body class="is-loading">
@@ -30,15 +30,15 @@
 
     <!-- Header -->
     <header id="header">
-        <a href="login.html" class="logo">听风回响</a>
+        <a th:href="@{/login}" class="logo">听风回响</a>
     </header>
 
     <!-- Nav -->
     <nav id="nav">
         <ul class="links">
             <li class="active"><a href="index.html">最近的事</a></li>
-            <li><a href="generic.html">吃豆豆</a></li>
-            <li><a href="elements.html">吐泡泡</a></li>
+            <li><a th:href="@{/generic}">吃豆豆</a></li>
+            <li><a th:href="@{/elements}">吐泡泡</a></li>
         </ul>
         <ul class="icons">
             <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
@@ -56,7 +56,7 @@
                 <h2><a href="#">A boring headline</a></h2>
                 <p>往往是可以在这里加上一段注释或者美文，但这种时候就会体现出自己文学匮乏的现状，这一点比较糟糕</p>
             </header>
-            <a href="#" class="image main"><img src="../static/img/pic01.jpg" alt=""/></a>
+            <a href="#" class="image main"><img src="/img/pic01.jpg" alt=""/></a>
             <ul class="actions">
                 <li><a href="#" class="button big">Full Story</a></li>
             </ul>
@@ -70,7 +70,7 @@
                     <h2><a href="#">风的轻语<br/>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;蝉的夏鸣</a></h2>
                 </header>
-                <a href="#" class="image fit"><img src="../static/img/pic02.jpg" alt=""/></a>
+                <a href="#" class="image fit"><img src="/img/pic02.jpg" alt=""/></a>
                 <p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque
                     venenatis dolor imperdiet dolor mattis sagittis magna etiam.</p>
                 <ul class="actions">
@@ -83,7 +83,7 @@
                     <h2><a href="#">不忘初心<br/>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;方得始终</a></h2>
                 </header>
-                <a href="#" class="image fit"><img src="../static/img/pic03.jpg" alt=""/></a>
+                <a href="#" class="image fit"><img src="/img/pic03.jpg" alt=""/></a>
                 <p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque
                     venenatis dolor imperdiet dolor mattis sagittis magna etiam.</p>
                 <ul class="actions">
@@ -169,12 +169,12 @@
 </div>
 
 <!-- Scripts -->
-<script src="../static/js/jquery.min.js"></script>
-<script src="../static/js/jquery.scrollex.min.js"></script>
-<script src="../static/js/jquery.scrolly.min.js"></script>
-<script src="../static/js/skel.min.js"></script>
-<script src="../static/js/util.js"></script>
-<script src="../static/js/main.js"></script>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/jquery.scrollex.min.js"></script>
+<script src="/js/jquery.scrolly.min.js"></script>
+<script src="/js/skel.min.js"></script>
+<script src="/js/util.js"></script>
+<script src="/js/main.js"></script>
 
 </body>
 </html>

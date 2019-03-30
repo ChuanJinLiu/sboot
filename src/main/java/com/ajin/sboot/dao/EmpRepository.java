@@ -16,11 +16,12 @@ public interface  EmpRepository extends JpaRepository<Emp, Integer> {
      * @param name
      * @return
      */
-    Emp findByName(String name);
+    List<Emp> findByNameLikeOrderByIdDesc(String name);
+
 
     /**
      * 根据age查询员工
-     *
+     * @param age
      * @return
      */
     List<Emp> findByAge(Long age);

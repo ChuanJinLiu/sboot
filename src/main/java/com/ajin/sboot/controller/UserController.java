@@ -6,8 +6,8 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpSession;
 import java.util.UUID;
@@ -16,7 +16,7 @@ import java.util.UUID;
  * @author Japoul
  */
 
-@RestController
+@Controller
 public class UserController {
 
     @Autowired
@@ -54,4 +54,5 @@ public class UserController {
         session.setAttribute("uid", uid);
         return session.getId();
     }
+
 }
