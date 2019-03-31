@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class RouteController {
 
-    @RequestMapping("/index")
-    public String index() {
-        return "index";
+    @RequestMapping("/")
+    public String home() {
+        return "home";
     }
 
     @RequestMapping("/login")
@@ -29,8 +29,8 @@ public class RouteController {
         return "generic";
     }
 
-    @RequestMapping("/admin")
-    public String admin() {
-        return "admin";
+    @RequestMapping("/index")
+    public String index() {
+        return "index";
     }
 }

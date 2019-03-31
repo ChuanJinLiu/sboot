@@ -30,13 +30,13 @@
 
     <!-- Header -->
     <header id="header">
-        <a th:href="@{/login}" class="logo">听风回响</a>
+        <a th:href="@{/login}" class="logo" target="_self">听风回响</a>
     </header>
 
     <!-- Nav -->
     <nav id="nav">
         <ul class="links">
-            <li class="active"><a href="index.html">最近的事</a></li>
+            <li class="active"><a th:href="@{/home}">最近的事</a></li>
             <li><a th:href="@{/generic}">吃豆豆</a></li>
             <li><a th:href="@{/elements}">吐泡泡</a></li>
         </ul>

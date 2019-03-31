@@ -2,9 +2,11 @@
 
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Generic Page - Massively by HTML5 UP</title>
+    <title>Home of Japoul</title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="/img/favicon.png">
     <link rel="stylesheet" href="/css/main.css"/>
     <noscript>
         <link rel="stylesheet" href="/css/noscript.css"/>
@@ -17,13 +19,13 @@
 
     <!-- Header -->
     <header id="header">
-        <a th:href="@{/login}" class="logo">听风回响</a>
+        <a th:href="@{/login}" class="logo" target="_self">听风回响</a>
     </header>
 
     <!-- Nav -->
     <nav id="nav">
         <ul class="links">
-            <li><a th:href="@{/index}">最近的事</a></li>
+            <li><a th:href="@{/home}">最近的事</a></li>
             <li class="active"><a th:href="@{/generic}">吃豆豆</a></li>
             <li><a th:href="@{/elements}">吐泡泡</a></li>
         </ul>
