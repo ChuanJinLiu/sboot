@@ -1,0 +1,83 @@
+<div class="table-responsive" id="tableCon">
+    <table class="table table-datatable table-custom" id="dataTable">
+        <thead>
+        <tr>
+            <th class="sort-alpha text-center">#</th>
+            <th class="sort-alpha text-center">计划ID</th>
+            <th class="sort-alpha text-center">计划内容</th>
+            <th class="sort-alpha text-center">计划类型</th>
+            <th class="sort-amount text-center">预计时间</th>
+            <th class="sort-amount text-center">创建时间</th>
+            <th class="text-center">状态</th>
+            <th class="no-sort text-center">操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="odd gradeX">
+            <td class="text-center text-center">1</td>
+            <td class="text-center text-center" id="tasksId" th:text="${tasks.id}"></td>
+            <td class="text-center text-center">
+                <input class="input-sm" type="text" id="tasksName" th:value="${tasks.name}"/>
+            </td>
+            <td class="text-center text-center">
+                <input class="input-sm" type="text" id="tasksType" th:value="${tasks.type}"/>
+            </td>
+            <td class="text-center text-center" th:text="${tasks.planTime}"></td>
+            <td class="text-center text-center" th:text="${tasks.createTime}"></td>
+            <td class="text-center text-center">待完成</td>
+            <td class="actions text-center">
+                <a class="save">保存</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        let $toastr = toastr;
+
+        //消息提示全局配置
+        $toastr.options = {
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-top-center",
+            "preventDuplicates": true,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "1600",
+            "extendedTimeOut": "0",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        };
+
+        /**
+         * 保存修改
+         */
+        $(".save").click(function () {
+            $.ajax({
+                url: "/updateTasks",
+                type: "post",
+                data: {
+                    id: $("#tasksId").text(),
+                    name: $("#tasksName").val(),
+                    type: $("#tasksType").val()
+                },
+                success: function (data) {
+                    $toastr["info"]("修改成功！");
+                    setTimeout(function () {
+                        window.location.reload();
+                    }, 1000)
+                },
+                error: function (data) {
+                    $toastr["error"]("修改失败，服务器异常！");
+                },
+            })
+        });
+    })
+</script>

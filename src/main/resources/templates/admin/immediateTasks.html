@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.springframework.org/schema/data/jaxb">
+<head>
+    <title>Japoul-Admin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8"/>
+
+    <link rel="apple-touch-icon" sizes="76x76" th:href="@{/img/apple-icon.png}">
+    <link rel="icon" type="image/png" th:href="@{/img/favicon.png}">
+    <!-- Bootstrap -->
+    <link href="admin/css/vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="admin/css/vendor/animate/animate.min.css">
+    <link type="text/css" rel="stylesheet" media="all" href="admin/js/vendor/mmenu/css/jquery.mmenu.all.css"/>
+    <link rel="stylesheet" href="admin/js/vendor/videobackground/css/jquery.videobackground.css">
+    <link rel="stylesheet" href="admin/css/vendor/bootstrap-checkbox.css">
+
+    <link rel="stylesheet" href="admin/js/vendor/rickshaw/css/rickshaw.min.css">
+    <link rel="stylesheet" href="admin/js/vendor/morris/css/morris.css">
+    <link rel="stylesheet" href="admin/js/vendor/tabdrop/css/tabdrop.css">
+    <link rel="stylesheet" href="admin/js/vendor/summernote/css/summernote.css">
+    <link rel="stylesheet" href="admin/js/vendor/summernote/css/summernote-bs3.css">
+    <link rel="stylesheet" href="admin/js/vendor/chosen/css/chosen.min.css">
+    <link rel="stylesheet" href="admin/js/vendor/chosen/css/chosen-bootstrap.css">
+    <link th:href="@{/css/toastr.min.css}" rel="stylesheet"/>
+    <link href="admin/css/minimal.css" rel="stylesheet">
+</head>
+<body class="bg-1">
+<!-- Preloader -->
+<div class="mask">
+    <div id="loader"></div>
+</div>
+
+<!-- Wrap all page content here -->
+<div id="wrap">
+    <!-- Make page fluid -->
+    <div class="row">
+        <!-- Fixed navbar -->
+        <div class="navbar navbar-default navbar-fixed-top navbar-transparent-black mm-fixed-top" role="navigation"
+             id="navbar">
+            <!-- Branding -->
+            <div class="navbar-header col-md-2">
+                <a class="navbar-brand" href="index.html">
+                    <strong>AJIN</strong>plus+
+                </a>
+                <div class="sidebar-collapse">
+                    <a href="#">
+                        <i class="fa fa-bars"></i>
+                    </a>
+                </div>
+            </div>
+            <!-- .nav-collapse -->
+            <div class="navbar-collapse">
+
+                <!-- Page refresh -->
+                <ul class="nav navbar-nav refresh">
+                    <li class="divided">
+                        <a href="#" class="page-refresh"><i class="fa fa-refresh"></i></a>
+                    </li>
+                </ul>
+                <!-- /Page refresh -->
+
+                <!-- Search -->
+                <div class="search" id="main-search">
+                    <i class="fa fa-search"></i> <input type="text" placeholder="Search...">
+                </div>
+                <!-- Search end -->
+
+                <!-- Quick Actions -->
+                <ul class="nav navbar-nav quick-actions">
+                    <li class="dropdown divided">
+
+                        <a class="dropdown-toggle button" data-toggle="dropdown" href="#">
+                            <i class="fa fa-bell-o"></i>
+                            <span class="label label-transparent-black">3</span>
+                        </a>
+
+                        <ul class="dropdown-menu wide arrow nopadding bordered">
+                            <li><h1>你有<strong>3</strong> 个代办事项</h1></li>
+
+                            <li>
+                                <a href="#">
+                                    <span class="label label-green"><i class="fa fa-bookmark"></i></span>
+                                    Spring Boot 大作业编写
+                                    <span class="small">18 分钟前</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#">
+                                    <span class="label label-red"><i class="fa fa-bookmark"></i></span>
+                                    数据可视化作业
+                                    <span class="small">27 分钟前</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#">
+                                    <span class="label label-orange"><i class="fa fa-plus"></i></span>
+                                    打打游戏
+                                    <span class="small">36 分钟前</span>
+                                </a>
+                            </li>
+
+                            <li><a href="#">更多通知 <i class="fa fa-angle-right"></i></a></li>
+                        </ul>
+
+                    </li>
+
+                    <li class="dropdown divided user" id="current-user">
+                        <!-- <div class="profile-photo">
+                          <img src="admin/images/profile-photo.jpg" alt />
+                        </div> -->
+                        <a class="dropdown-toggle options" data-toggle="dropdown" href="#">
+                            <span th:text=${session.user.name}></span> <i class="fa fa-caret-down"></i>
+                        </a>
+
+                        <ul class="dropdown-menu arrow settings">
+
+                            <li>
+
+                                <h3>皮肤:</h3>
+                                <ul id="color-schemes">
+                                    <li><a href="#" class="bg-1"></a></li>
+                                    <li><a href="#" class="bg-2"></a></li>
+                                    <li><a href="#" class="bg-3"></a></li>
+                                    <li><a href="#" class="bg-4"></a></li>
+                                    <li><a href="#" class="bg-5"></a></li>
+                                    <li><a href="#" class="bg-6"></a></li>
+                                </ul>
+
+                                <div class="form-group videobg-check">
+                                    <label class="col-xs-8 control-label">个人管理</label>
+                                    <div class="col-xs-4 control-label">
+                                        <div class="onoffswitch greensea small">
+                                            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox"
+                                                   id="videobg-check">
+                                            <label class="onoffswitch-label" for="videobg-check">
+                                                <span class="onoffswitch-inner"></span>
+                                                <span class="onoffswitch-switch"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </li>
+
+                            <li class="divider"></li>
+
+                            <li>
+                                <a href="#"><i class="fa fa-user"></i> 个人信息</a>
+                            </li>
+
+                            <li>
+                                <a href="#"><i class="fa fa-edit"></i> 修改密码</a>
+                            </li>
+
+                            <li>
+                                <a href="#"><i class="fa fa-envelope"></i> 邮件 <span class="badge badge-red"
+                                                                                    id="user-inbox">3</span></a>
+                            </li>
+
+                            <li class="divider"></li>
+
+                            <li>
+                                <a th:href="@{/logout}"><i class="fa fa-power-off"></i> 退出登录</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a><i class="fa fa-comments"></i></a>
+                    </li>
+                </ul>
+                <!-- /Quick Actions -->
+
+
+                <!-- Sidebar -->
+                <ul class="nav navbar-nav side-nav" id="sidebar">
+
+                    <li class="collapsed-content">
+                        <ul>
+                            <li class="search"><!-- Collapsed search pasting here at 768px --></li>
+                        </ul>
+                    </li>
+
+                    <li class="navigation" id="navigation">
+                        <a href="#" class="sidebar-toggle" data-toggle="#navigation">基础管理 <i class="fa fa-angle-up"></i></a>
+
+                        <ul class="menu">
+
+                            <li>
+                                <a th:href="@{/index}">
+                                    <i class="fa fa-area-chart"></i> 数据统计（模拟）
+                                </a>
+                            </li>
+
+                            <li class="dropdown active">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-bookmark-o"></i> 任务管理 <b class="fa fa-plus dropdown-plus"></b>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a th:href="@{/immediateTasks}">
+                                            <i class="fa fa-caret-right"></i> 近期任务
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a th:href="@{/overTasks}">
+                                            <i class="fa fa-caret-right"></i> 已完成任务
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a th:href="@{/}">
+                                    <i class="fa fa-bicycle"></i> 首页
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="navigation" id="order-summary">
+                        <a href="#" class="sidebar-toggle underline" data-toggle="#order-summary">其他管理<i
+                                class="fa fa-angle-up"></i></a>
+
+                        <ul class="menu">
+                            <li>
+                                <a th:href="@{/index}">
+                                    <i class="fa fa-cloud"></i> 云收藏
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <!-- Sidebar end -->
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+        <!-- Fixed navbar end -->
+
+        <!-- Page content -->
+        <div id="content" class="col-md-12">
+
+            <!-- page header -->
+            <div class="pageheader">
+
+
+                <h2><i class="fa fa-lightbulb-o" style="line-height: 48px;padding-left: 0;"></i> 近期任务
+                    <span>/ 最近需要进行的任务项</span></h2>
+
+
+                <div class="breadcrumbs">
+                    <ol class="breadcrumb">
+                        <li>任务管理</li>
+                        <li><a th:href="@{/immediateTasks}">近期任务</a></li>
+                    </ol>
+                </div>
+            </div>
+            <!-- /page header -->
+
+            <!-- content main container -->
+            <div class="main">
+                <!-- row -->
+                <div class="row">
+                    <!-- col 12 -->
+                    <div class="col-md-12">
+                        <!-- tile -->
+                        <section class="tile transparent">
+
+
+                            <!-- tile header -->
+                            <div class="tile-header transparent">
+                                <h1><strong>近期任务</strong> 一览表</h1>
+                                <div class="controls">
+                                    <a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
+                                    <a href="#" class="remove"><i class="fa fa-times"></i></a>
+                                </div>
+                            </div>
+                            <!-- /tile header -->
+
+                            <!-- tile body -->
+                            <div class="tile-body color transparent-white rounded-corners">
+
+                                <div class="table-responsive" id="tableCon">
+                                    <table class="table table-datatable table-custom" id="dataTable">
+                                        <thead>
+                                        <tr>
+                                            <th class="sort-alpha text-center">#</th>
+                                            <th class="sort-alpha text-center">计划ID</th>
+                                            <th class="sort-alpha text-center">计划内容</th>
+                                            <th class="sort-alpha text-center">计划类型</th>
+                                            <th class="sort-amount text-center">预计时间</th>
+                                            <th class="sort-amount text-center">创建时间</th>
+                                            <th class="text-center">状态</th>
+                                            <th class="no-sort text-center">操作</th>
+                                        </tr>
+                                        <tr>
+                                            <th class="sort-alpha text-center">新计划</th>
+                                            <th class="sort-alpha text-center">AUTO</th>
+                                            <th class="sort-alpha text-center">
+                                                <input class="input-sm" type="text" id="name"/>
+                                            </th>
+                                            <th class="sort-alpha text-center">
+                                                <input class="input-sm" type="text" id="type"/>
+                                            </th>
+                                            <th class="sort-amount text-center">
+                                                <input class="input-sm" type="date" id="planTime"/>
+                                            </th>
+                                            <th class="sort-amount text-center">AUTO</th>
+                                            <th class="text-center">准备中</th>
+                                            <th class="no-sort text-center">
+                                                <button id="addRow" class="btn btn-green btn-sm add-row">新建计划</button>
+                                            </th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr class="odd gradeX"
+                                            th:each="immediateTasks,tasksStat:${immediateTasksPage.content}">
+                                            <td class="text-center text-center" th:text="${tasksStat.index}"></td>
+                                            <td class="text-center text-center" th:text="${immediateTasks.id}"></td>
+                                            <td class="text-center text-center" th:text="${immediateTasks.name}"></td>
+                                            <td class="text-center text-center" th:text="${immediateTasks.type}"></td>
+                                            <td class="text-center text-center"
+                                                th:text="${immediateTasks.planTime}"></td>
+                                            <td class="text-center text-center"
+                                                th:text="${immediateTasks.createTime}"></td>
+                                            <td class="text-center text-center">待完成</td>
+                                            <td class="actions text-center">
+                                                <a class="edit" th:data="${immediateTasks.id}">Edit</a>
+                                                <a class="delete"
+                                                   th:href="@{/tasksDelete(id=${immediateTasks.id},pageNum=${pageNum})}">Delete</a>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="row">
+                                        <div class="col-md-4"></div>
+                                        <div class="col-md-4"></div>
+                                        <div class="col-md-12 text-right sm-center">
+                                            <div class="dataTables_paginate paging_bootstrap paging_custombootstrap">
+                                                <ul class="pagination">
+                                                    <li class="first ">
+                                                        <a th:href="@{?pageNum=0}" class="">第一页</a>
+                                                    </li>
+                                                    <li th:if="${pageNum > 0}" class="prev">
+                                                        <a th:href="@{/immediateTasks(pageNum=${pageNum} - 1)}"
+                                                           class="">上一页</a>
+                                                    </li>
+                                                    <li th:each="i : ${#numbers.sequence(1,totalPages)}"
+                                                        th:classappend="${(pageNum + 1) eq i} ? 'active' : ''">
+                                                        <a th:href="@{/immediateTasks(pageNum=${i}-1)}"
+                                                           th:text="${i}" class="">1</a>
+                                                    </li>
+                                                    <li th:unless="${pageNum + 1 == totalPages}" class="next">
+                                                        <a th:href="@{/immediateTasks(pageNum=${pageNum}+1)}" class="">下一页</a>
+                                                    </li>
+                                                    <li class="last">
+                                                        <a th:href="@{/immediateTasks(pageNum=${totalPages}-1)}"
+                                                           class="">最末页</a>
+                                                    </li>
+                                                </ul>
+                                                <!--<ul th:if="${dataList.totalPages le 7}" data-am-widget="pagination" class="am-pagination am-pagination-default" style="text-align: center">-->
+                                                <!--<li th:if="${dataList.number > 0}" class="am-pagination-prev ">-->
+                                                <!--<a th:href="@{?page={page}(page=${dataList.number})}" class="">上一页</a>-->
+                                                <!--</li>-->
+                                                <!--<li th:each="i : ${#numbers.sequence(1, dataList.totalPages)}"-->
+                                                <!--th:classappend="${(dataList.number + 1) eq i} ? 'am-active' : ''">-->
+                                                <!--<a th:href="@{?page={page}(page=${i})}"-->
+                                                <!--th:text="${i}" class="">1</a>-->
+                                                <!--</li>-->
+                                                <!--<li th:unless="${dataList.number + 1 == dataList.totalPages}" class="am-pagination-next ">-->
+                                                <!--<a th:href="@{?page={page}(page=${dataList.number} + 2)}" class="">下一页</a>-->
+                                                <!--</li>-->
+                                                <!--</ul>-->
+                                                <!--<ul th:if="${dataList.totalPages gt 7}" data-am-widget="pagination" class="am-pagination am-pagination-default" style="text-align: center">-->
+                                                <!--&lt;!&ndash; 上一页 &ndash;&gt;-->
+                                                <!--<li th:classappend="*{first} ? 'disabled' : ''" th:if="${dataList.number > 0}" class="am-pagination-prev ">-->
+                                                <!--<a th:href="@{?page={page}(page=${dataList.number - 2})}">上一页</a>-->
+                                                <!--</li>-->
+                                                <!--<li class="am-pagination-first" th:classappend="${(dataList.number + 1) eq 1} ? 'am-active' : ''">-->
+                                                <!--<a th:href="@{?page=1}">1</a>-->
+                                                <!--</li>-->
+                                                <!--&lt;!&ndash; 当前页面小于等于4 &ndash;&gt;-->
+                                                <!--<li th:if="${(dataList.number + 1) le 4}" th:each="i : ${#numbers.sequence(2,5)}"-->
+                                                <!--th:classappend="${(dataList.number + 1) eq i} ? 'am-active' : ''" >-->
+                                                <!--<a th:href="@{?page={page}(page=${i})}">-->
+                                                <!--<span th:text="${i}"></span>-->
+                                                <!--</a>-->
+                                                <!--</li>-->
+                                                <!--<li th:if="${(dataList.number + 1) le 4}">-->
+                                                <!--<a href="javascript:void(0);">-->
+                                                <!--<span aria-hidden="true">...</span>-->
+                                                <!--</a>-->
+                                                <!--</li>-->
+                                                <!--&lt;!&ndash; 最后一页与当前页面之差，小于等于3 &ndash;&gt;-->
+                                                <!--<li th:if="${(dataList.totalPages-(dataList.number + 1)) le 3}">-->
+                                                <!--<a href="javascript:void(0);" >-->
+                                                <!--<span aria-hidden="true">...</span>-->
+                                                <!--</a>-->
+                                                <!--</li>-->
+                                                <!--<li th:if="${(dataList.totalPages-(dataList.number + 1)) le 3}" th:each="i : ${#numbers.sequence(dataList.totalPages-4, dataList.totalPages-1)}"-->
+                                                <!--th:classappend="${(dataList.number + 1) eq i} ? 'am-active' : ''" >-->
+                                                <!--<a th:href="@{?page={page}(page=${i})}">-->
+                                                <!--<span th:text="${i}"></span>-->
+                                                <!--</a>-->
+                                                <!--</li>-->
+                                                <!--&lt;!&ndash; 最后一页与当前页面之差大于3，且  当前页面大于4&ndash;&gt;-->
+                                                <!--<li th:if="${((dataList.number + 1) gt 4) && ((dataList.totalPages-(dataList.number + 1)) gt 3 )}">-->
+                                                <!--<a href="javascript:void(0);">-->
+                                                <!--<span aria-hidden="true">...</span>-->
+                                                <!--</a>-->
+                                                <!--</li>-->
+                                                <!--<li th:if="${((dataList.number + 1) gt 4) && ((dataList.totalPages-(dataList.number + 1)) gt 3 )}"-->
+                                                <!--th:classappend="${(dataList.number + 1) eq (dataList.number + 1)} ? 'am-active' : ''">-->
+                                                <!--<a th:href="@{?page={page}(page=${dataList.number+1})}" th:text="${dataList.number+1}">number</a>-->
+                                                <!--</li>-->
+                                                <!--<li th:if="${((dataList.number + 1) gt 4) && ((dataList.totalPages-(dataList.number + 1)) gt 3 )}">-->
+                                                <!--<a th:href="@{?page={page}(page=${dataList.number+2})}" th:text="${dataList.number+2}">number</a>-->
+                                                <!--</li>-->
+                                                <!--<li th:if="${((dataList.number + 1) gt 4) && ((dataList.totalPages-(dataList.number + 1)) gt 3 )}">-->
+                                                <!--<a th:href="@{?page={page}(page=${dataList.number+3})}" th:text="${dataList.number+3}">number</a>-->
+                                                <!--</li>-->
+                                                <!--<li th:if="${((dataList.number + 1) gt 4) && ((dataList.totalPages-(dataList.number + 1)) gt 3 )}">-->
+                                                <!--<a href="javascript:void(0);">-->
+                                                <!--<span aria-hidden="true">...</span>-->
+                                                <!--</a>-->
+                                                <!--</li>-->
+                                                <!--&lt;!&ndash; 最后一页 &ndash;&gt;-->
+                                                <!--<li th:classappend="${(dataList.number + 1) eq dataList.totalPages} ? 'am-active' : ''" >-->
+                                                <!--<a th:href="@{?page={page}(page=${dataList.totalPages})}" th:text="${dataList.totalPages}">endPage</a>-->
+                                                <!--</li>-->
+                                                <!--&lt;!&ndash; 下一页 &ndash;&gt;-->
+                                                <!--<li th:classappend="*{last} ? 'disabled' : ''" th:unless="${dataList.number + 1 == dataList.totalPages}">-->
+                                                <!--<a th:href="@{?page={page}(page=${dataList.number+2})}">-->
+                                                <!--<span aria-hidden="true">下一页</span>-->
+                                                <!--</a>-->
+                                                <!--</li>-->
+                                                <!--</ul>-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /tile body -->
+                        </section>
+                        <!-- /tile -->
+                    </div><!-- tab-content -->
+                </div>
+            </div>
+            <!-- Make page fluid-->
+        </div>
+        <!-- Wrap all page content end -->
+        <section class="videocontent" id="video"></section>
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="admin/js/jquery.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="admin/js/vendor/bootstrap/bootstrap.min.js"></script>
+        <script type="text/javascript" src="admin/js/vendor/mmenu/js/jquery.mmenu.min.js"></script>
+        <script type="text/javascript" src="admin/js/vendor/sparkline/jquery.sparkline.min.js"></script>
+        <script type="text/javascript" src="admin/js/vendor/nicescroll/jquery.nicescroll.min.js"></script>
+        <script type="text/javascript" src="admin/js/vendor/animate-numbers/jquery.animateNumbers.js"></script>
+        <script type="text/javascript" src="admin/js/vendor/videobackground/jquery.videobackground.js"></script>
+        <script type="text/javascript" src="admin/js/vendor/blockui/jquery.blockUI.js"></script>
+        <script src="admin/js/vendor/datatables/jquery.dataTables.min.js"></script>
+        <script src="admin/js/vendor/datatables/ColReorderWithResize.js"></script>
+        <script src="admin/js/vendor/datatables/colvis/dataTables.colVis.min.js"></script>
+        <script src="admin/js/vendor/datatables/tabletools/ZeroClipboard.js"></script>
+        <script src="admin/js/vendor/datatables/tabletools/dataTables.tableTools.min.js"></script>
+        <script src="admin/js/vendor/datatables/dataTables.bootstrap.js"></script>
+        <script src="admin/js/vendor/chosen/chosen.jquery.min.js"></script>
+        <script src="admin/js/minimal.min.js"></script>
+        <script th:src="@{/js/toastr.min.js}"></script>
+        <script type="text/javascript">
+            $(function () {
+
+                let $toastr = toastr;
+
+                //消息提示全局配置
+                $toastr.options = {
+                    "closeButton": false,
+                    "debug": false,
+                    "newestOnTop": false,
+                    "progressBar": false,
+                    "positionClass": "toast-top-center",
+                    "preventDuplicates": true,
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "timeOut": "1600",
+                    "extendedTimeOut": "0",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                };
+
+                // $(".delete").click(function (id) {
+                //
+                //     $.ajax({
+                //         type: "POST",
+                //         url: "/tasksDelete",
+                //         data: {
+                //             id: id
+                //         },
+                //         success: function (data) {
+                //             $toastr["info"]("删除成功！");
+                //             setTimeout(function () {
+                //                 window.location.reload();
+                //             },1000)
+                //         },
+                //         error: function (data) {
+                //             console.log(data);
+                //             $toastr["error"]("服务器异常");
+                //         }
+                //     })
+                //
+                // })
+                /**
+                 * 修改界面
+                 */
+                $(".edit").click(function () {
+                    $.post("/toUpdateTasks", {
+                        id: $(this).attr("data")
+                    }, function (data) {
+                        $("#tableCon").html(data);
+                    });
+                    return false;
+                });
+
+
+                /**
+                 * 添加数据
+                 */
+                $("#addRow").on("click", function () {
+                    $.ajax({
+                        url: "/addTasks",
+                        type: "post",
+                        data: {
+                            name: $("#name").val(),
+                            type: $("#type").val(),
+                            planTime: $("#planTime").val(),
+                        },
+                        success: function (data) {
+                            $toastr["info"]("删除成功！");
+                            window.location.reload();
+                        },
+                        error: function (data) {
+                            $toastr["error"]("服务器异常！");
+                        },
+                    })
+                });
+            })
+        </script>
+    </div>
+</div>
+</body>
+</html>
+      

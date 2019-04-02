@@ -1,0 +1,180 @@
+<!DOCTYPE HTML>
+
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Home of Japoul</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="/img/favicon.png">
+    <link rel="stylesheet" href="/css/main.css"/>
+    <noscript>
+        <link rel="stylesheet" href="/css/noscript.css"/>
+    </noscript>
+</head>
+<body class="is-loading">
+
+<!-- Wrapper -->
+<div id="wrapper" class="fade-in">
+
+    <!-- Intro -->
+    <div id="intro">
+        <h1>Japoul's<br/>
+            HomePage</h1>
+        <p>A Home of AJin who is 20 years old young boy of IT. <br/>
+            Welcome to here, start your soul travel.</p>
+        <ul class="actions">
+            <li><a href="#header" class="button icon solo fa-arrow-down scrolly">继续</a></li>
+        </ul>
+    </div>
+
+    <!-- Header -->
+    <header id="header">
+        <a th:href="@{/login}" class="logo" target="_self">清风回响</a>
+    </header>
+
+    <!-- Nav -->
+    <nav id="nav">
+        <ul class="links">
+            <li class="active"><a th:href="@{/}">最近的事</a></li>
+            <li><a th:href="@{/generic}">吃豆豆</a></li>
+            <li><a th:href="@{/elements}">吐泡泡</a></li>
+        </ul>
+        <ul class="icons">
+            <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+            <li><a href="#" class="icon fa-github"><span class="label">GitHub</span></a></li>
+        </ul>
+    </nav>
+
+    <!-- Main -->
+    <div id="main">
+
+        <!-- Featured Post -->
+        <article class="post featured">
+            <header class="major">
+                <span class="date">Match 28, 2019</span>
+                <h2><a href="#">A boring headline</a></h2>
+                <p>往往是可以在这里加上一段注释或者美文，但这种时候就会体现出自己文学匮乏的现状，这一点比较糟糕</p>
+            </header>
+            <a href="#" class="image main"><img src="/img/pic01.jpg" alt=""/></a>
+            <ul class="actions">
+                <li><a href="#" class="button big">Full Story</a></li>
+            </ul>
+        </article>
+
+        <!-- Posts -->
+        <section class="posts">
+            <article>
+                <header>
+                    <span class="date">Match 28, 2019</span>
+                    <h2><a href="#">风的轻语<br/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;蝉的夏鸣</a></h2>
+                </header>
+                <a href="#" class="image fit"><img src="/img/pic02.jpg" alt=""/></a>
+                <p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque
+                    venenatis dolor imperdiet dolor mattis sagittis magna etiam.</p>
+                <ul class="actions">
+                    <li><a href="#" class="button">Full Story</a></li>
+                </ul>
+            </article>
+            <article>
+                <header>
+                    <span class="date">Match 28, 2019</span>
+                    <h2><a href="#">不忘初心<br/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;方得始终</a></h2>
+                </header>
+                <a href="#" class="image fit"><img src="/img/pic03.jpg" alt=""/></a>
+                <p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque
+                    venenatis dolor imperdiet dolor mattis sagittis magna etiam.</p>
+                <ul class="actions">
+                    <li><a href="#" class="button">Full Story</a></li>
+                </ul>
+            </article>
+
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="pagination">
+                <!--<a href="#" class="previous">Prev</a>-->
+                <a href="#" class="page active">1</a>
+                <a href="#" class="page">2</a>
+                <a href="#" class="page">3</a>
+                <span class="extra">&hellip;</span>
+                <a href="#" class="page">8</a>
+                <a href="#" class="page">9</a>
+                <a href="#" class="page">10</a>
+                <a href="#" class="next">Next</a>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Footer -->
+    <!-- <footer id="footer">
+        <section>
+            <form method="post" action="#">
+                <div class="field">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" id="name" />
+                </div>
+                <div class="field">
+                    <label for="email">Email</label>
+                    <input type="text" name="email" id="email" />
+                </div>
+                <div class="field">
+                    <label for="message">Message</label>
+                    <textarea name="message" id="message" rows="3"></textarea>
+                </div>
+                <ul class="actions">
+                    <li><input type="submit" value="Send Message" /></li>
+                </ul>
+            </form>
+        </section>
+        <section class="split contact">
+            <section class="alt">
+                <h3>Address</h3>
+                <p>1234 Somewhere Road #87257<br />
+                Nashville, TN 00000-0000</p>
+            </section>
+            <section>
+                <h3>Phone</h3>
+                <p><a href="#">(000) 000-0000</a></p>
+            </section>
+            <section>
+                <h3>Email</h3>
+                <p><a href="#">info@untitled.tld</a></p>
+            </section>
+            <section>
+                <h3>Social</h3>
+                <ul class="icons alt">
+                    <li><a href="#" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
+                    <li><a href="#" class="icon alt fa-facebook"><span class="label">Facebook</span></a></li>
+                    <li><a href="#" class="icon alt fa-instagram"><span class="label">Instagram</span></a></li>
+                    <li><a href="#" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+                </ul>
+            </section>
+        </section>
+    </footer> -->
+
+    <!-- Copyright -->
+    <div id="copyright">
+        <ul>
+            <li>&copy; JAPOUL</li>
+            <li>QQ:1157464268</li>
+            <li>BLOG</li>
+        </ul>
+    </div>
+
+</div>
+
+<!-- Scripts -->
+<script src="/js/jquery.min.js"></script>
+<script src="/js/jquery.scrollex.min.js"></script>
+<script src="/js/jquery.scrolly.min.js"></script>
+<script src="/js/skel.min.js"></script>
+<script src="/js/util.js"></script>
+<script src="/js/main.js"></script>
+
+</body>
+</html>

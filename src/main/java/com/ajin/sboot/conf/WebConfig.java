@@ -8,6 +8,8 @@ import org.springframework.context.annotation.Configuration;
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Japoul
@@ -43,7 +45,26 @@ public class WebConfig {
                 throws IOException, ServletException {
             // TODO Auto-generated method stub
             HttpServletRequest request = (HttpServletRequest) srequest;
-            System.out.println("this is MyFilter,url :"+request.getRequestURI());
+            System.out.println("请求的路径 :" + request.getRequestURI());
+            boolean vlogin = request.getSession().getAttribute("heroList") == null;
+            //是否需要进行拦截 true为需要 false为不需要
+            boolean vUrl = false;
+            String url = request.getRequestURI();
+            List<String> urls = new ArrayList<>();
+//            urls.add("/index");
+//            urls.add("/immediateTasks");
+//            urls.add("/overTasks");
+            for (String v_url : urls) {
+                if (v_url.equals(url)) {
+                    vUrl = true;
+                    break;
+                }
+            }
+            if (vlogin && vUrl) {
+                request.setAttribute("flag", "error");
+                request.getRequestDispatcher("/login").forward(request, sresponse);
+            }
+
             filterChain.doFilter(srequest, sresponse);
         }
 
